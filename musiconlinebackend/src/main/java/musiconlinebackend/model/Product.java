@@ -1,57 +1,123 @@
 package musiconlinebackend.model;
-
 import java.io.Serializable;
+import java.util.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javassist.SerialVersionUID;
+
+import javax.persistence.*;
+import javax.validation.*;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Component
-public class Product implements Serializable  
-{
+@Table (name="Product")
 
+public class Product  implements Serializable
+{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Id 
-	private int pid;
-	private String pname;
-	private String pdescription;
-	private double price;
+	
+	@GeneratedValue
+	@Id
+	
+	private int id;
+	private String name;
+	private String description;
+	private Float price;
 	private int stock;
-	public int getPid() {
-		return pid;
+	
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="cid")
+	private Category category;
+	
+	@ManyToOne
+	@JoinColumn(name="sid")
+	private Supplier supplier;
+	
+	@Transient			//used to prevent the field from getting persist in db
+	MultipartFile pImage;
+	
+	private String imgname;
+	
+	
+
+	public int getId() {
+		return id;
 	}
-	public void setPid(int pid) {
-		this.pid = pid;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getPname() {
-		return pname;
+
+	public String getName() {
+		return name;
 	}
-	public void setPname(String pname) {
-		this.pname = pname;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getPdescription() {
-		return pdescription;
+
+	public String getDescription() {
+		return description;
 	}
-	public void setPdescription(String pdescription) {
-		this.pdescription = pdescription;
-	}
-	public double getPrice() {
+
+	
+
+	public Float getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+
+	public void setPrice(Float price) {
 		this.price = price;
 	}
+
 	public int getStock() {
 		return stock;
 	}
+
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+
+	public MultipartFile getpImage() {
+		return pImage;
+	}
+
+	public void setpImage(MultipartFile pImage) {
+		this.pImage = pImage;
+	}
+	
+	public String getImgname() {
+		return imgname;
+	}
+
+	public void setImgname(String imgname) {
+		this.imgname = imgname;
+	}
+
 	
 	
+
 }

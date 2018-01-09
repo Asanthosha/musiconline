@@ -7,52 +7,35 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>musiconline Maven Webapp</name>
   <url>http://maven.apache.org</url>
-                                                                                                                                                                                             
-  <properties>
-		<spring-version>4.3.10.RELEASE</spring-version>
-		<spring-security-version>4.1.4.RELEASE</spring-security-version>
-		<servlet-version>3.1.0</servlet-version>
-		<spring-webflow-version>2.4.4.RELEASE</spring-webflow-version>
-	</properties>
-	
-	
-	<dependencies>
-	
-	
-	<dependency>
-	
-	<groupId>com</groupId>
+       
+     <dependencies>
+   
+   
+   <dependency>
+   
+    <groupId>com</groupId>
   <artifactId>musiconlinebackend</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
-	</dependency>
+ 
+   </dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring-version}</version>
-		</dependency>
+<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.1.0</version>
+    <scope>provided</scope>
+</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring-version}</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring-version}</version>
-		</dependency>
+<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+<dependency>
+    <groupId>javax.servlet.jsp</groupId>
+    <artifactId>javax.servlet.jsp-api</artifactId>
+    <version>2.3.1</version>
+    <scope>provided</scope>
+</dependency>
 
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>${servlet-version}</version>
-		</dependency>
+
 <!-- https://mvnrepository.com/artifact/jstl/jstl -->
 <dependency>
     <groupId>jstl</groupId>
@@ -60,74 +43,34 @@
     <version>1.2</version>
 </dependency>
 
-		<!-- https://mvnrepository.com/artifact/taglibs/standard -->
-		<dependency>
-			<groupId>taglibs</groupId>
-			<artifactId>standard</artifactId>
-			<version>1.1.2</version>
-		</dependency>
 
 
-		<!-- https://mvnrepository.com/artifact/org.springframework.webflow/spring-webflow -->
-		<dependency>
-			<groupId>org.springframework.webflow</groupId>
-			<artifactId>spring-webflow</artifactId>
-			<version>${spring-webflow-version}</version>
-		</dependency>
-
-
-	<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>${spring-security-version}</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${spring-security-version}</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${spring-security-version}</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-taglibs</artifactId>
-			<version>${spring-security-version}</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>1.2.3</version>
-		</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>4.3.11.RELEASE</version>
+</dependency>
 
 
 
-	</dependencies>
-	<build>
+
+
+  </dependencies>
+  <build>
+  
+  <!-- Updated for the latest version of JAVA -->
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
-
-
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
 		</plugins>
-		<finalName>musiconline</finalName>
-	</build>
+  
+    <finalName>musiconline</finalName>
+  </build>
 </project>

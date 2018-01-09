@@ -1,41 +1,51 @@
 package musiconlinebackend.model;
-
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-
-import org.springframework.stereotype.Component;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
-@Component 
-public class Category  implements Serializable 
+@Table (name="Category")
+public class Category implements Serializable
 {
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
 	@Id
-private int cid;
+	private int cid;
+	private String name;
 	
-private String cname;
+	@OneToMany(targetEntity=Product.class,fetch=FetchType.EAGER,mappedBy=("category"))	//EAGAR=it will fetch details immediately in object
+	private Set<Product>products=new HashSet<Product>(0);
 
-public int getCid() {
-	return cid;
-}
+	public int getCid() {
+		return cid;
+	}
 
-public void setCid(int cid) {
-	this.cid = cid;
-}
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
 
-public String getCname() {
-	return cname;
-}
+	public String getName() {
+		return name;
+	}
 
-public void setCname(String cname) {
-	this.cname = cname;
-}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Set<Product> getProducts() {
+		return products;
+	}
 
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
 
 }
