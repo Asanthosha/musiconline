@@ -1,0 +1,7 @@
+@CHARSET "ISO-8859-1";
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img 
+{
+	min-width:500px;
+  min-height: 500px;    /* Set slide height here */
+}

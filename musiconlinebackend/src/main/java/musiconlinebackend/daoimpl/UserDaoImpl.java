@@ -13,9 +13,7 @@ import musiconlinebackend.model.User;
 	public class UserDaoImpl implements UserDao
 	{
 		@Autowired						
-		SessionFactory sessionFactory;		//SessionFactory is factory class through which we get session & perform db oprtaion
-		//(one client request required one session factory )
-		//session= session object provides an interface between application & data in db
+		SessionFactory sessionFactory;		
 		
 		public UserDaoImpl(SessionFactory sessionFactory)
 		{
@@ -25,11 +23,11 @@ import musiconlinebackend.model.User;
 		//==============insert user===================================
 		public void insertUser(User user)
 		{
-			Session session=sessionFactory.openSession();	//creating session object
-			session.beginTransaction();						//creating transaction object
-			session.saveOrUpdate(user);				//saveOrUpdate=persists or updates the given object. 
+			Session session=sessionFactory.openSession();	
+			session.beginTransaction();						
+			session.saveOrUpdate(user);				 
 													
-			session.getTransaction().commit();		//transaction is commited.commit=permanantly save transaction into db
+			session.getTransaction().commit();		
 			
 		}
 		//=========find user by email====================
@@ -47,7 +45,7 @@ import musiconlinebackend.model.User;
 			catch(HibernateException ex)
 			{
 				ex.printStackTrace();
-				session.getTransaction().rollback();//rollback=restore db to last commited state
+				session.getTransaction().rollback();
 			}
 			return u;
 			

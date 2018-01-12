@@ -38,7 +38,7 @@ public class User implements Serializable
 	private String address;
 	
 	
-	@Pattern(regexp="[\\d]{10}",message="Please enter 10 digits")			//regexp=regular expression is an object that describes a pattern of characters.
+	@Pattern(regexp="[\\d]{10}",message="Please enter 10 digits")			
 	@NotNull
 	@Size(min=8,max=10,message="Enter Correct Phone no.")
 	private String phone;

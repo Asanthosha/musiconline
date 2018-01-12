@@ -25,7 +25,7 @@ import musiconlinebackend.model.User;
 
 
 @Configuration				//Used to configure hibernate properties
-@ComponentScan("com.*")			 
+@ComponentScan("musiconlinebackend.*")			 
 								
 @EnableTransactionManagement	//enabling Spring’s annotation-driven transaction management capability
 public class HibernateConfiguration
@@ -33,15 +33,15 @@ public class HibernateConfiguration
 
 @Autowired						
 								
-@Bean(name="dataSource")	//"dataSource"=bean name
+@Bean(name="dataSource")	
 public DataSource getH2DataSource()
 {
 System.out.println("Data Source Method");
-DriverManagerDataSource dataSource = new DriverManagerDataSource();		//spring-jdbc
-dataSource.setDriverClassName("org.h2.Driver");			//driver class
-dataSource.setUrl("jdbc:h2:tcp://localhost/~/musiconline");	//JDBC URL
-dataSource.setUsername("sa");							//username
-dataSource.setPassword("");								//password
+DriverManagerDataSource dataSource = new DriverManagerDataSource();		
+dataSource.setDriverClassName("org.h2.Driver");			
+dataSource.setUrl("jdbc:h2:tcp://localhost/~/musiconline");	
+dataSource.setUsername("sa");							
+dataSource.setPassword("sa");							
 
 System.out.println("Data Source Created");
 System.out.println("************************Database h2 is connected******************************");
@@ -64,9 +64,8 @@ LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataS
 sessionBuilder.addProperties(getHibernateProperties());
 sessionBuilder.addAnnotatedClass(User.class); 
 sessionBuilder.addAnnotatedClass(Category.class); 
-sessionBuilder.addAnnotatedClass(Product.class); 
 sessionBuilder.addAnnotatedClass(Supplier.class); 
-
+sessionBuilder.addAnnotatedClass(Product.class);
 
 return sessionBuilder.buildSessionFactory();
 }
@@ -103,7 +102,7 @@ return new SupplierDaoImpl(sessionFactory);
 
 
 @Autowired
-@Bean(name = "transactionManager")			//spring-orm
+@Bean(name = "transactionManager")			
 public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) 
 {
 System.out.println("Transaction.....");

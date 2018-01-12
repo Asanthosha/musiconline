@@ -7,15 +7,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import musiconlinebackend.dao.SupplierDao;
 import musiconlinebackend.model.Supplier;
 
 
 
-@SuppressWarnings("deprecation")
 
+@SuppressWarnings("deprecation")
 @Repository("supplierDaoImpl")
 public class SupplierDaoImpl implements SupplierDao 
 {

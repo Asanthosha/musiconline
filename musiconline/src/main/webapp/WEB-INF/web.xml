@@ -1,27 +1,28 @@
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 
-	<display-name>Archetype Created Web Application</display-name>
-
-
+	
+	<display-name>Counter Web Application</display-name>
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>
-                        org.springframework.web.servlet.DispatcherServlet		
+                        org.springframework.web.servlet.DispatcherServlet			<!-- This is class which is already in spring(In this class behaviour of dispatcher-servlet is already defined) -->
                 </servlet-class>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>1</load-on-startup>		<!--specify ds loads automatically on the startup of web application  -->
 	</servlet>
 
-	<servlet-mapping>						
+	<servlet-mapping>						<!--mapping dispatcher-servlet  -->
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>		
 	</servlet-mapping>
 
-	<context-param>										
-		<param-name>contextConfigLocation</param-name>	
-		<param-value>/WEB-INF/dispatcher-servlet.xml
+	<context-param>										<!--it show from which location dispatcher-servlet.xml and springSecurity.xml are process-->
+		<param-name>contextConfigLocation</param-name>	<!-- param-name=define configuration of location of context -->
+		<param-value>/WEB-INF/dispatcher-servlet.xml,
+		/WEB-INF/springSecurity.xml
 		</param-value>
 	</context-param>
 
@@ -30,5 +31,16 @@
                    org.springframework.web.context.ContextLoaderListener
              </listener-class>
 	</listener>
+	
+	<filter>
+	<filter-name>springSecurityFilterChain</filter-name>
+	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	
+	
+	<filter-mapping>				
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	
 </web-app>
